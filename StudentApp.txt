@@ -1,0 +1,116 @@
+package edu.qis.gayi.ui;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+import edu.qis.gayi.model.Student;
+import edu.qis.gayi.service.StudentService;
+public class StudentApp {
+Scanner sc = new Scanner(System.in);
+StudentService Server;
+public StudentApp() {
+Server = new StudentService();// id address of Service
+   }
+public static void main(String[] args) {
+       StudentApp app = new StudentApp();
+               while (true) {
+
+	 			System.out.println(" ----- OPERATIONS ----");// <a>
+
+	 			System.out.println("1. Add Student ");
+
+	 			System.out.println("2. Search Student By ID ");
+
+	 			System.out.println("3. Display All Student ");
+
+	 			System.out.println("0. Exit");
+
+	 			System.out.println("Enter Option :- ");
+
+	  
+
+	 			switch (new Scanner(System.in).nextInt()) {
+
+	 			case 1:
+
+	 				app.fillStudentForm();
+
+	 				break;
+
+	 			case 2:
+
+	 				app.getStudentBasedOnId();
+
+	 				break;
+
+	 			case 3:
+
+	 				app.getAllStudent();
+
+	 				break;
+
+	 			case 0:
+
+	 				System.exit(0);
+
+	 			}// end switch
+
+	 			System.out.println("\n--------------------------------------------------------------\n");
+
+	 		} // end while
+
+	  
+
+	 	}// end main
+
+            public void fillStudentForm() {
+
+	 		System.out.println("Enter Student Name : - ");
+
+	 		String name = sc.nextLine();
+
+
+	 		System.out.println("Enter Course : - ");
+
+	 		String course = sc.nextLine();
+
+            int id = new Random().nextInt(1000);
+
+            Student s = new Student(name, id, course);
+
+	 		String notification = Server.insertStudent(s);
+
+	 		System.out.println("Notification :- "+notification);
+	}
+public void displayStudent(Student s) {
+
+	 		System.out.println(s.getId()+" "+s.getStudentname()+" "+s.getCourse()+" ");
+
+	 		System.out.println("\n");
+
+	 	}
+public void getStudentBasedOnId() {
+
+	  }
+public void getAllStudent()
+{
+List<Student> allSavedStudents = Server.getAllStudents();
+
+
+	 		for (Student student : allSavedStudents) {
+
+	 			displayStudent(student);
+
+
+	 		}
+
+	 	}
+
+	  
+
+	 }// end class
+
+	  
+
+	  
+
+

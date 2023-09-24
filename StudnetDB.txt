@@ -1,0 +1,29 @@
+package edu.qis.gayi.db;
+import java.util.ArrayList;
+import java.util.List;
+
+ 
+
+import edu.qis.gayi.model.Student;
+public class StudentDB {
+List<Student> allstudents  = new ArrayList<>();
+public int insertStudent(Student s)
+{
+boolean status = allstudents.add(s); // insert SQL
+       return status?s.getId():-1;
+}
+public Student getStudentById(int searchId)
+{
+       return null;
+
+}
+public List<Student> getallStudent()
+
+{
+      return allstudents;
+
+   }  
+	 
+}
+
+

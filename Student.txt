@@ -1,0 +1,92 @@
+package edu.qis.gayi.model;
+public class Student {
+private String studentname;
+private int id;
+private String course;
+public Student() {
+      studentname = "Gayathri";
+      id = 369;
+      course = "java";
+}
+public Student(String studentname, int id, String course) {
+      super();
+      this.studentname = studentname;
+      this.id = id;
+      this.course = course;
+   }
+public String getStudentname() {
+      return studentname;
+
+  }
+public void setStudentname(String studentname) {
+          this.studentname = studentname;
+
+	}
+
+public int getId() {
+      return id;
+     }
+public void setId(int id) {
+      this.id = id;
+
+	}
+public String getCourse() {
+      return course;
+
+}
+public void setCourse(String course) {
+      this.course = course;
+}
+
+	 @Override
+public String toString() {
+
+	 return "Student [studentname= " +studentname + " ,id=" + id + " , course=" + course+ "]";
+
+	}
+
+	@Override
+public int hashCode() {
+
+	return studentname.length();
+
+}
+      @Override
+public boolean equals(Object obj) {
+
+   if(obj instanceof Student) {
+        Student s = (Student) obj;
+        boolean b1 = (this.id == s.getId());
+        boolean b2 = (this.studentname.equals(s.getStudentname()));
+        boolean b3 = (this.course.equals(s.getCourse()));
+       return b1&& b2&& b3;
+
+}
+return false;
+
+}
+
+		}	
+
+		
+
+	 
+
+		
+
+		
+
+		
+
+		
+
+	 
+
+	 
+
+	 
+
+	 
+
+	 
+
